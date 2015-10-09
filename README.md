@@ -5,6 +5,7 @@
 ### Pages
 
 - [one hundred thousand vh](http://artskydj.github.io/test/1k.html)
+- [honeycomb tile](http://artskydj.github.io/test/honeycomb.html)
 
 ### Commit Messages
 
