@@ -5,21 +5,25 @@
 	<title>Coconuts</title>
 	<style>
 		body {
-			margin: 50px 200px;
-			font-size: 18pt;
+			margin: 30px 150px;
+			font-size: 25pt;
 			font-family: Calibri, Arial, Sans-Serif;
 		}
-		#answer-container {
-			margin-top: 100px;
+		#pirates {
+			font-size: 20pt;
+		}
+		#go {
+			font-size: 20pt;
+		}
+		#answer {
+			margin-top: 50px;
 		}
 	</style>
 </head>
 <body>
-	Pirates: <input type="number" id="pirates" min="2" max="8" step="1" value="3">
-	<button onclick="update()">Go!</button>
-	<div id="answer-container">
-	Answer: <div id="answer"></div>
-	</div>
+	<b>Pirates:</b> <input type="number" id="pirates" min="2" max="8" step="1" value="3">
+	<button id="go" onclick="update()">Go!</button>
+	<div id="answer"></div>
 	<script>
 		function update() {
 			var pirates = Number(document.getElementById('pirates').value)
@@ -45,7 +49,7 @@
 					}
 				}
 
-				var answer = [ 'The pirates gathered ' + coconutCounts.shift() + ' coconuts originally.' ]
+				var answer = [ '<b>Answer:</b>', 'The pirates gathered ' + coconutCounts.shift() + ' coconuts originally.' ]
 				answer = answer.concat(coconutCounts.map(function (count, pirate) {
 					return 'After pirate ' + (pirate + 1) + ' took his coconuts, there were ' + count + ' coconuts left.'
 				}))
