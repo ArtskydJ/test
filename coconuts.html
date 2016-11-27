@@ -10,6 +10,7 @@
 			font-family: Calibri, Arial, Sans-Serif;
 		}
 		#pirates {
+			width: 2em;
 			font-size: 20pt;
 		}
 		#go {
@@ -17,6 +18,22 @@
 		}
 		#answer {
 			margin-top: 50px;
+		}
+		@media all and (max-width: 800px) {
+			body {
+				margin: 10px 50px;
+				font-size: 60pt;
+			}
+			#pirates {
+				font-size: 60pt;
+			}
+			#go {
+				font-size: 60pt;
+			}
+			#answer {
+				margin-top: 150px;
+				font-size: 30pt;
+			}
 		}
 	</style>
 </head>
@@ -49,13 +66,14 @@
 					}
 				}
 
-				var answer = [ '<b>Answer:</b>', 'The pirates gathered ' + coconutCounts.shift() + ' coconuts originally.' ]
-				answer = answer.concat(coconutCounts.map(function (count, pirate) {
-					return 'After pirate ' + (pirate + 1) + ' took his coconuts, there were ' + count + ' coconuts left.'
-				}))
-				answer = answer.concat('This leaves ' + ((coconutCounts.pop() - 1) / pirates) + ' coconuts for each of them.')
+				var answer =
+					'<b>Answer:</b><br>The pirates gathered ' + coconutCounts.shift() + ' coconuts originally.<ul><li>' +
+					coconutCounts.map(function (count, pirate) {
+						return 'After pirate ' + (pirate + 1) + ' took his coconuts, there were ' + count + ' coconuts left.'
+					}).join('</li><li>') +
+					'</li></ul>This leaves ' + ((coconutCounts.pop() - 1) / pirates) + ' coconuts for each of them.'
 
-				document.getElementById('answer').innerHTML = answer.join('<br>')
+				document.getElementById('answer').innerHTML = answer
 			}, 0)
 		}
 	</script>
