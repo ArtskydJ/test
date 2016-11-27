@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Coconuts</title>
+	<style>
+		body {
+			margin: 50px 200px;
+			font-size: 18pt;
+			font-family: Calibri, Arial, Sans-Serif;
+		}
+		#answer-container {
+			margin-top: 100px;
+		}
+	</style>
+</head>
+<body>
+	Pirates: <input type="number" id="pirates" min="2" max="8" step="1" value="3">
+	<button onclick="update()">Go!</button>
+	<div id="answer-container">
+	Answer: <div id="answer"></div>
+	</div>
+	<script>
+		function update() {
+			var pirates = Number(document.getElementById('pirates').value)
+			if (!pirates) {
+				document.getElementById('answer').innerHTML = '<span style="color:red">Unknown number of pirates</span>'
+				throw new Error('Unknown number of pirates')
+			}
+			document.getElementById('answer').innerHTML = ''
+
+			setTimeout(function () {
+				var nextDayCoconuts = 1
+				var continueLoop = true
+
+				while(continueLoop) {
+					nextDayCoconuts += pirates
+					continueLoop = false
+
+					var coconutCounts = [ nextDayCoconuts ]
+					for (var i = 0; i < pirates && !continueLoop; i++) {
+						var tmp = coconutCounts[0] * (pirates / (pirates - 1)) + 1
+						if (Math.floor(tmp) !== tmp) continueLoop = true;
+						coconutCounts.unshift(tmp)
+					}
+				}
+
+				var answer = [ 'The pirates gathered ' + coconutCounts.shift() + ' coconuts originally.' ]
+				answer = answer.concat(coconutCounts.map(function (count, pirate) {
+					return 'After pirate ' + (pirate + 1) + ' took his coconuts, there were ' + count + ' coconuts left.'
+				}))
+				answer = answer.concat('This leaves ' + ((coconutCounts.pop() - 1) / pirates) + ' coconuts for each of them.')
+
+				document.getElementById('answer').innerHTML = answer.join('<br>')
+			}, 0)
+		}
+	</script>
+</body>
+</html>
