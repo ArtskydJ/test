@@ -1,9 +1,28 @@
-<!--- http://stackoverflow.com/a/11299234 --->
-<video id="basic-stream" class="videostream" autoplay="" style="width: 100%; height: 100%;"></video>
-<script>
-navigator.getUserMedia({ audio: true, video: true }, function(stream) {
-	var video = document.querySelector('video')
-  video.src = window.URL.createObjectURL(stream)
-  // video.src = stream // Opera, maybe?
-}, function (err) { throw err })
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>View your Webcam</title>
+	<style>
+		video {
+			width: 100%;
+			height: 100%;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<!-- http://stackoverflow.com/a/11299234 -->
+	<video autoplay=""></video>
+	<script>
+		navigator.getUserMedia({ audio: true, video: true }, function(stream) {
+			var video = document.querySelector('video')
+			video.src = window.URL.createObjectURL(stream)
+			// video.src = stream // Opera, maybe?
+		}, function (err) { throw err })
+	</script>
+</body>
+</html>
