@@ -4,9 +4,13 @@
 
 ### Pages
 
-- [one hundred thousand vh](http://artskydj.github.io/test/1k.html)
-- [honeycomb tile](http://artskydj.github.io/test/honeycomb.html)
-- [freedom 2015 schedule](http://artskydj.github.io/test/freedom-2015-schedule.html)
+- [one hundred thousand vh](https://artskydj.github.io/test/1k.html)
+- [coconuts riddle](https://artskydj.github.io/test/coconuts.html)
+- [honeycomb tile](https://artskydj.github.io/test/honeycomb.html)
+- [freedom 2015 schedule](https://artskydj.github.io/test/freedom-2015-schedule.html)
+- [POST request](https://artskydj.github.io/test/post.html)
+- [&lt;title&gt; in &lt;body&gt;](https://artskydj.github.io/test/post.html)
+- [view webcam](https://artskydj.github.io/test/post.html)
 
 ### Commit Messages
 
