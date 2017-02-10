@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Speilbound Loyalty</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-size: 14pt;
+			width: 40em;
+			margin: 0 auto;
+		}
+		img {
+			max-width: 100%;
+		}
+		.center {
+			text-align: center;
+		}
+		.paragraph {
+			margin: 1em 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="center">
+		<h1>Spielbound Loyalty Card</h1>
+	</div>
+	<div class="paragraph">
+		By gambling with <span id="drinksBoughtGamber"></span> drinks, you had
+		<span id="destroyedCardsGamblerCount">?</span> destroyed cards and
+		<span id="freeDrinksGamblerCount">?</span> free drinks.
+	</div>
+
+	<div class="paragraph">
+		If you bought <span id="drinksBoughtTortoise"></span> drinks with the tortoise, you would have
+		<span id="freeDrinksTortoiseCount">?</span> free drinks.
+	</div>
+	<div class="paragraph">
+		The best choice was to be the <span id="bestChoice">unknown</span>.
+	</div>
+
+	<div class="paragraph">
+		Number of drinks to buy: <input type="number" id="drinksBoughtCount" value="100">
+	</div>
+	<div class="paragraph center">
+		<button onclick="return runSimulation()">Run the simulation</button>
+	</div>
+
+	<div class="paragraph">
+		<img src="https://pbs.twimg.com/media/CumbVisUAAAoPCE.jpg"/>
+	</div>
+
+	<script>
+		const dicePunches = [ 0, 0, 1, 1, 1, 1, 2, 2, 2, 3 ]
+
+		function runSimulation() {
+			const drinksBoughtCount = Number(document.getElementById('drinksBoughtCount').value)
+
+			var diceRollsCount = 0
+			var freeDrinksGamblerCount = 0
+			var destroyedCardsGamblerCount = 0
+			var freeDrinksTortoiseCount = Math.floor(drinksBoughtCount / 9)
+
+			while(diceRollsCount < drinksBoughtCount) {
+				var punches = 0
+				var thisAttempts = 0
+				var destroyed = false
+
+				while (punches <= 9 && !destroyed && diceRollsCount <= drinksBoughtCount) {
+					var thisDiceRoll = Math.floor(Math.random() * 10)
+					punches += dicePunches[thisDiceRoll]
+
+					if (thisDiceRoll === 0) destroyed = true
+					diceRollsCount++
+					thisAttempts++
+				}
+
+				if (destroyed) {
+					console.log('Card was DESTROYED after ' + thisAttempts + ' rolls with ' + punches + ' punches.')
+					destroyedCardsGamblerCount++
+				} else if (punches > 9) {
+					console.log('Got enough punches after ' + thisAttempts + ' rolls.')
+					freeDrinksGamblerCount++
+				} else if (diceRollsCount > drinksBoughtCount) {
+					console.log('Could not finish this card within ' + thisAttempts + '.')
+				} else {
+					console.error('wut?')
+				}
+			}
+			console.log(drinksBoughtCount)
+			console.log(diceRollsCount)
+
+			document.getElementById('drinksBoughtGamber').innerHTML = drinksBoughtCount
+			document.getElementById('drinksBoughtTortoise').innerHTML = drinksBoughtCount
+			document.getElementById('destroyedCardsGamblerCount').innerHTML = destroyedCardsGamblerCount
+			document.getElementById('freeDrinksGamblerCount').innerHTML = freeDrinksGamblerCount
+			document.getElementById('freeDrinksTortoiseCount').innerHTML = freeDrinksTortoiseCount
+
+			document.getElementById('bestChoice').innerHTML = freeDrinksGamblerCount > freeDrinksTortoiseCount ? 'Gambler' : 'Tortoise'
+		}
+
+		runSimulation()
+	</script>
+</body>
+</html>

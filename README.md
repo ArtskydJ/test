@@ -9,6 +9,7 @@
 - [honeycomb tile](https://artskydj.github.io/test/honeycomb.html)
 - [freedom 2015 schedule](https://artskydj.github.io/test/freedom-2015-schedule.html)
 - [POST request](https://artskydj.github.io/test/post.html)
+- [Spielbound Loyalty Card Simulator](https://artskydj.github.io/test/spielbound-loyalty.html)
 - [&lt;title&gt; in &lt;body&gt;](https://artskydj.github.io/test/post.html)
 - [view webcam](https://artskydj.github.io/test/webcam.html)
 
