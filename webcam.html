@@ -21,7 +21,7 @@
 	<!-- http://stackoverflow.com/a/11299234 -->
 	<video autoplay=""></video>
 	<script>
-		navigator.getUserMedia({ audio: true, video: true }, function(stream) {
+		navigator.getUserMedia({ audio: false, video: true }, function(stream) {
 			var video = document.querySelector('video')
 			video.src = window.URL.createObjectURL(stream)
 			// video.src = stream // Opera, maybe?
