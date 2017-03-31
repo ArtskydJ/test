@@ -14,12 +14,30 @@
 		}
 		body {
 			overflow: hidden;
+			font-family: calibri, sans-serif;
+		}
+		input#mirror, label[for="mirror"] {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			z-index: 1;
+		}
+		label[for="mirror"] {
+			display: inline-block;
+			padding-right: 20px;
+			padding-left: 3px;
+			background-color: #fff;
+		}
+		#mirror:checked + video {
+			transform: rotateY(180deg);
 		}
 	</style>
 </head>
 <body>
-	<!-- http://stackoverflow.com/a/11299234 -->
+	<label for="mirror">Mirror</label>
+	<input type="checkbox" id="mirror">
 	<video autoplay=""></video>
+	<!-- http://stackoverflow.com/a/11299234 -->
 	<script>
 		navigator.getUserMedia({ audio: false, video: true }, function(stream) {
 			var video = document.querySelector('video')
