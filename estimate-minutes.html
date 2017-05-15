@@ -1,0 +1,17 @@
+estimated remaining hours: <input id="hours" type="number" value="0"/><br>
+estimated remaining minutes: <input id="minutes" type="number" value="0" step="5"/>
+battery percent: <input id="percent" type="number" value="0" step="5"/>
+<button onclick="calc()>calculate</button>
+total estimated time: <input id="result" readonly>
+<script>
+var hours = document.getElementById('hours')
+var minutes = document.getElementById('minutes')
+var percent = document.getElementById('percent')
+var result = document.getElementById('result')
+
+function calc() {
+  var estimatedMinutes = Number(hours.value) * 60 + Number(minutes.value)
+  var totalPossibleMinutes = estimatedMinutes / percent.value * 100
+  result.value = Math.floor(totalPossibleMinutes / 60) + ' hours ' + totalPossibleMinutes % 60 + ' minutes'
+}
+</script>
