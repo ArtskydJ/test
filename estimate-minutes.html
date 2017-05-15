@@ -19,7 +19,7 @@
 
     function calc() {
       var estimatedMinutes = Number(hours.value) * 60 + Number(minutes.value)
-      var totalPossibleMinutes = estimatedMinutes / percent.value * 100
+      var totalPossibleMinutes = Math.round(estimatedMinutes / percent.value * 100)
       result.value = Math.floor(totalPossibleMinutes / 60) + ' hours ' + totalPossibleMinutes % 60 + ' minutes'
     }
     </script>
