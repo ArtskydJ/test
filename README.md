@@ -5,6 +5,7 @@
 ### Pages
 
 - [one hundred thousand vh](https://artskydj.github.io/test/1k.html)
+- [checkerboard](https://artskydj.github.io/test/checkerboard.html)
 - [coconuts riddle](https://artskydj.github.io/test/coconuts.html)
 - [honeycomb tile](https://artskydj.github.io/test/honeycomb.html)
 - [freedom 2015 schedule](https://artskydj.github.io/test/freedom-2015-schedule.html)
