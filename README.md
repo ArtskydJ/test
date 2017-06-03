@@ -4,11 +4,12 @@
 
 ### Pages
 
-- [one hundred thousand vh](https://artskydj.github.io/test/1k.html)
+- [Card Games](https://artskydj.github.io/test/card-games.html)
 - [checkerboard](https://artskydj.github.io/test/checkerboard.html)
 - [coconuts riddle](https://artskydj.github.io/test/coconuts.html)
 - [honeycomb tile](https://artskydj.github.io/test/honeycomb.html)
 - [freedom 2015 schedule](https://artskydj.github.io/test/freedom-2015-schedule.html)
+- [one hundred thousand vh](https://artskydj.github.io/test/1k.html)
 - [POST request](https://artskydj.github.io/test/post.html)
 - [Spielbound Loyalty Card Simulator](https://artskydj.github.io/test/spielbound-loyalty.html)
 - [&lt;title&gt; in &lt;body&gt;](https://artskydj.github.io/test/post.html)
