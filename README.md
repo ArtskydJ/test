@@ -12,7 +12,7 @@
 - [one hundred thousand vh](https://artskydj.github.io/test/1k.html)
 - [POST request](https://artskydj.github.io/test/post.html)
 - [Spielbound Loyalty Card Simulator](https://artskydj.github.io/test/spielbound-loyalty.html)
-- [&lt;title&gt; in &lt;body&gt;](https://artskydj.github.io/test/post.html)
+- [&lt;title&gt; in &lt;body&gt;](https://artskydj.github.io/test/title-in-body.html)
 - [view webcam](https://artskydj.github.io/test/webcam.html)
 - [estimate minutes on battery](https://artskydj.github.io/test/estimate-minutes.html)
 
