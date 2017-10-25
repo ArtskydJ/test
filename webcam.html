@@ -39,6 +39,10 @@
 	<video autoplay=""></video>
 	<!-- http://stackoverflow.com/a/11299234 -->
 	<script>
+		if (window.location.href.indexOf('http://') === 0) {
+			window.location.assign(window.location.href.replace('http://', 'https://'))
+		}
+		
 		navigator.getUserMedia({ audio: false, video: true }, function(stream) {
 			var video = document.querySelector('video')
 			video.src = window.URL.createObjectURL(stream)
