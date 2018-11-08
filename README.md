@@ -2,6 +2,10 @@
 
 > ArtskydJ's gh-pages test site
 
+[github.com/artskydj/test](https://github.com/ArtskydJ/test)
+
+[artskydj.github.io/test](https://artskydj.github.io/test)
+
 ### Pages
 
 - [Card Games](https://artskydj.github.io/test/card-games.html)
