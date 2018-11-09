@@ -52,8 +52,8 @@ items = items.map(function (item, i) {
 
 var podcast = makePodcast({
 	indent: true,
-	title: 'title',
-	description: 'description',
+	title: 'Pocket College',
+	description: 'Pocket College',
 	feed_url: 'https://artskydj.github.io/test/pocketcollege/rss.xml',
 	site_url: 'https://artskydj.github.io/test/pocketcollege/',
 	author: 'Joseph Dykstra',
