@@ -40,10 +40,11 @@ a.forEach(function(b) {
 })
 
 
-items = items.map(function (item) {
+items = items.map(function (item, i) {
+	var paddedCount = ('000' + (i+1)).slice(-4)
 	return {
-		title: item[2],
-		description: item[0] + ' ' + item[2],
+		title: paddedCount + '. ' + item[3],
+		description: item[0] + ' ' + item[3],
 		url: item[16],
 		date: 'Jan 1, '+item[5]+' 12:00:00'
 	}
