@@ -42,11 +42,14 @@ a.forEach(function(b) {
 
 items = items.map(function (item, i) {
 	var paddedCount = ('000' + (i+1)).slice(-4)
+	var year = parseInt('20' + paddedCount.slice(0, 2))
+	var month = parseInt(paddedCount.slice(2, 3))
+	var day = parseInt(paddedCount.slice(3, 4)) + 1
 	return {
 		title: paddedCount + '. ' + item[3],
 		description: item[0] + ' ' + item[3],
 		url: item[16],
-		date: 'Jan 1, '+item[5]+' 12:00:00',
+		date: new Date(year, month, day),
 		enclosure: {
 			url: item[16],
 			size: item[17]
