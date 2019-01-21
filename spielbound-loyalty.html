@@ -67,24 +67,23 @@
 			var destroyedCardsGamblerCount = 0
 			var freeDrinksTortoiseCount = Math.floor(drinksBoughtCount / 9)
 			var punchesTortoiseCount = drinksBoughtCount % 9
-
-			while(diceRollsCount < drinksBoughtCount) {
-				var thisAttempts = 0
-
-				while (punchesGamblerCount <= 9 && diceRollsCount < drinksBoughtCount) {
-					diceRollsCount++
-					thisAttempts++
-					var thisDiceRoll = Math.floor(Math.random() * 10)
-					if (thisDiceRoll === 0) {
-						console.log(`Card was DESTROYED after ${thisAttempts} rolls with ${punchesGamblerCount} punches.`)
+			var thisAttempts = 0
+			while (punchesGamblerCount <= 9 && diceRollsCount < drinksBoughtCount) {
+				diceRollsCount++
+				thisAttempts++
+				var thisDiceRoll = Math.floor(Math.random() * 10)
+				if (thisDiceRoll === 0) {
+					console.log(`Card was DESTROYED after ${thisAttempts} rolls with ${punchesGamblerCount} punches.`)
+					punchesGamblerCount = 0
+					thisAttempts = 0
+					destroyedCardsGamblerCount++
+				} else {
+					punchesGamblerCount += dicePunches[thisDiceRoll]
+					if (punchesGamblerCount > 9) {
+						console.log(`Got enough punches after ${thisAttempts} rolls.`)
 						punchesGamblerCount = 0
-						destroyedCardsGamblerCount++
-					} else {
-						punchesGamblerCount += dicePunches[thisDiceRoll]
-						if (punchesGamblerCount > 9) {
-							console.log(`Got enough punches after ${thisAttempts} rolls.`)
-							freeDrinksGamblerCount++
-						}
+						thisAttempts = 0
+						freeDrinksGamblerCount++
 					}
 				}
 			}
