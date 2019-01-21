@@ -31,14 +31,15 @@
 		<h1>Spielbound Loyalty Card</h1>
 	</div>
 	<div class="paragraph">
-		By gambling with <span id="drinksBoughtGamber"></span> drinks, you had
-		<span id="destroyedCardsGamblerCount">?</span> destroyed cards and
-		<span id="freeDrinksGamblerCount">?</span> free drinks.
+		By gambling with <span id="drinksBoughtGambler"></span> drinks, you would have
+		<span id="destroyedCardsGamblerCount">?</span> destroyed cards,
+		<span id="freeDrinksGamblerCount">?</span> free drinks,
+		and <span id="punchesGamblerCount">?</span> punches.
 	</div>
 
 	<div class="paragraph">
 		If you bought <span id="drinksBoughtTortoise"></span> drinks with the tortoise, you would have
-		<span id="freeDrinksTortoiseCount">?</span> free drinks.
+		<span id="freeDrinksTortoiseCount">?</span> free drinks, and <span id="punchesTortoiseCount">?</span> punches.
 	</div>
 	<div class="paragraph">
 		The best choice was to be the <span id="bestChoice">unknown</span>.
@@ -56,50 +57,44 @@
 	</div>
 
 	<script>
-		const dicePunches = [ 0, 0, 1, 1, 1, 1, 2, 2, 2, 3 ]
-
 		function runSimulation() {
+			const dicePunches = [ null, 0, 1, 1, 1, 1, 2, 2, 2, 3 ]
 			const drinksBoughtCount = Number(document.getElementById('drinksBoughtCount').value)
 
 			var diceRollsCount = 0
 			var freeDrinksGamblerCount = 0
+			var punchesGamblerCount = 0
 			var destroyedCardsGamblerCount = 0
 			var freeDrinksTortoiseCount = Math.floor(drinksBoughtCount / 9)
+			var punchesTortoiseCount = drinksBoughtCount % 9
 
 			while(diceRollsCount < drinksBoughtCount) {
-				var punches = 0
 				var thisAttempts = 0
-				var destroyed = false
 
-				while (punches <= 9 && !destroyed && diceRollsCount <= drinksBoughtCount) {
-					var thisDiceRoll = Math.floor(Math.random() * 10)
-					punches += dicePunches[thisDiceRoll]
-
-					if (thisDiceRoll === 0) destroyed = true
+				while (punchesGamblerCount <= 9 && diceRollsCount < drinksBoughtCount) {
 					diceRollsCount++
 					thisAttempts++
-				}
-
-				if (destroyed) {
-					console.log('Card was DESTROYED after ' + thisAttempts + ' rolls with ' + punches + ' punches.')
-					destroyedCardsGamblerCount++
-				} else if (punches > 9) {
-					console.log('Got enough punches after ' + thisAttempts + ' rolls.')
-					freeDrinksGamblerCount++
-				} else if (diceRollsCount > drinksBoughtCount) {
-					console.log('Could not finish this card within ' + thisAttempts + '.')
-				} else {
-					console.error('wut?')
+					var thisDiceRoll = Math.floor(Math.random() * 10)
+					if (thisDiceRoll === 0) {
+						console.log(`Card was DESTROYED after ${thisAttempts} rolls with ${punchesGamblerCount} punches.`)
+						punchesGamblerCount = 0
+						destroyedCardsGamblerCount++
+					} else {
+						punchesGamblerCount += dicePunches[thisDiceRoll]
+						if (punchesGamblerCount > 9) {
+							console.log(`Got enough punches after ${thisAttempts} rolls.`)
+							freeDrinksGamblerCount++
+						}
+					}
 				}
 			}
-			console.log(drinksBoughtCount)
-			console.log(diceRollsCount)
-
-			document.getElementById('drinksBoughtGamber').innerHTML = drinksBoughtCount
+			document.getElementById('drinksBoughtGambler').innerHTML = drinksBoughtCount
 			document.getElementById('drinksBoughtTortoise').innerHTML = drinksBoughtCount
 			document.getElementById('destroyedCardsGamblerCount').innerHTML = destroyedCardsGamblerCount
 			document.getElementById('freeDrinksGamblerCount').innerHTML = freeDrinksGamblerCount
 			document.getElementById('freeDrinksTortoiseCount').innerHTML = freeDrinksTortoiseCount
+			document.getElementById('punchesTortoiseCount').innerHTML = punchesTortoiseCount
+			document.getElementById('punchesGamblerCount').innerHTML = punchesGamblerCount
 
 			document.getElementById('bestChoice').innerHTML = freeDrinksGamblerCount > freeDrinksTortoiseCount ? 'Gambler' : 'Tortoise'
 		}
