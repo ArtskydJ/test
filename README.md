@@ -19,6 +19,7 @@
 - [&lt;title&gt; in &lt;body&gt;](https://artskydj.github.io/test/title-in-body.html)
 - [view webcam](https://artskydj.github.io/test/webcam.html)
 - [estimate minutes on battery](https://artskydj.github.io/test/estimate-minutes.html)
+- [basic iframe](https://artskydj.github.io/test/basic-iframe.html)
 
 ### Commit Messages
 
