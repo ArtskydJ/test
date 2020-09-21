@@ -95,7 +95,9 @@
 			document.getElementById('punchesTortoiseCount').innerHTML = punchesTortoiseCount
 			document.getElementById('punchesGamblerCount').innerHTML = punchesGamblerCount
 
-			document.getElementById('bestChoice').innerHTML = freeDrinksGamblerCount > freeDrinksTortoiseCount ? 'Gambler' : 'Tortoise'
+			document.getElementById('bestChoice').innerHTML =
+				freeDrinksGamblerCount === freeDrinksTortoiseCount ? 'Equivalent' :
+				(freeDrinksGamblerCount > freeDrinksTortoiseCount ? 'Gambler' : 'Tortoise')
 		}
 
 		runSimulation()
