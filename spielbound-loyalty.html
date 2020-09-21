@@ -42,7 +42,7 @@
 		<span id="freeDrinksTortoiseCount">?</span> free drinks, and <span id="punchesTortoiseCount">?</span> punches.
 	</div>
 	<div class="paragraph">
-		The best choice was to be the <span id="bestChoice">unknown</span>.
+		The best choice was to be <span id="bestChoice">unknown</span>.
 	</div>
 
 	<div class="paragraph">
@@ -96,8 +96,8 @@
 			document.getElementById('punchesGamblerCount').innerHTML = punchesGamblerCount
 
 			document.getElementById('bestChoice').innerHTML =
-				freeDrinksGamblerCount === freeDrinksTortoiseCount ? 'Equivalent' :
-				(freeDrinksGamblerCount > freeDrinksTortoiseCount ? 'Gambler' : 'Tortoise')
+				freeDrinksGamblerCount === freeDrinksTortoiseCount ? 'either' :
+				(freeDrinksGamblerCount > freeDrinksTortoiseCount ? 'the Gambler' : 'the Tortoise')
 		}
 
 		runSimulation()
